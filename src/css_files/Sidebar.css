@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    display: flex;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+.logo-text-cont {
+    padding: 1em;
+    margin-top: 2em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, rgba(104, 93, 170, 0.5), white, rgba(255, 255, 255, 0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+.main-sidebar-cont {
+    padding-top: 3em;
+    gap: 3em !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-sidebar-cont-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 3em;
+}
+
+.home_sideBar {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding-left: 1em;
+    width: 18em;
+    gap: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+.home_sideBar:hover {
+    background-color: #3C3C3C;
+}
+
+.sidebar-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    opacity: 0.6 !important;
+    color: white;
+
+}
+
+.sidebar-text-logOut {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    opacity: 0.7 !important;
+    color: #ff0000;
+
+
+}
+
+.calendar_sideBar {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding-left: 1em;
+    width: 18em;
+    gap: 1.5em;
+    transition: background-color 0.3s ease;
+
+}
+
+.calendar_sideBar-settings {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding-left: 1em;
+    width: 18em;
+    gap: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+.calendar_sideBar-logOut {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding-left: 1em;
+    width: 18em;
+    gap: 1.5em;
+    transition: background-color 0.3s ease;
+    margin-top: 3em;
+}
+
+.calendar_sideBar-logOut:hover {
+    background-color: #3C3C3C;
+}
+
+.calendar_sideBar:hover {
+    background-color: #3C3C3C;
+}
+
+.calendar_sideBar-settings:hover {
+    background-color: #3C3C3C;
+}
+
+.breaker {
+    background-color: white;
+    height: 0.05em;
+    width: 17.5em;
+    opacity: 0.3;
+    margin-left: 1em;
+    display: flex;
+    margin-top: 5em;
+    justify-content: center;
+    align-items: center;
+}
+
+.breaker-new {
+    background-color: white;
+    height: 0.05em;
+    width: 17.5em;
+    opacity: 0.3;
+    margin-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+
+}
+
+
+
+
+@keyframes shine {
+    0% {
+        background-position: -100%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}

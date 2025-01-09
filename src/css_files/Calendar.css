@@ -1,0 +1,129 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .card {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 20px;
+  
+  }
+  
+  .calendar-card {
+    width: 70em; /* Povećana širina */
+    height: auto; /* Automatska visina */
+    padding: 30px; /* Veći unutarnji razmak */
+  }
+  
+
+p {
+    font-size: 1.2em;
+
+}
+
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root {
+    color: white !important;
+    font-size: 1.5em !important;
+}
+
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root {
+    color: white !important;
+    font-size: 1.5em !important;
+}
+
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+    background: #685daa !important;
+   
+}
+
+.css-17nrfho-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+    color: white !important;
+    font-size: 2em !important;
+
+}
+
+.css-z4ns9w-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+    color: white !important;
+    font-size: 2em !important;
+}
+
+.css-14yom7c-MuiSvgIcon-root-MuiPickersCalendarHeader-switchViewIcon {
+    color: white !important;
+    font-size: 2em !important;
+}
+
+.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+    color: white !important;
+    font-size: 1.5em !important;
+    opacity: 0.8;
+}
+
+/* Stil za datume u kalendaru */
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root:hover,
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:hover {
+    background-color: #999 !important;
+    color: white !important;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.css-1chuxo2-MuiPickersCalendarHeader-label {
+    font-size: 1.15em !important;
+}
+
+.css-5wchs2-MuiDateCalendar-root{
+    background-color: blue;
+    width: 200em !important;
+    background-color: #3c3c3c;
+    border-radius: 20px;
+    height: 100em !important;
+}
+.css-1rl1vrc-MuiDayCalendar-header{
+    gap: 6em;
+    margin-top: 4em;
+}
+.css-1pv2de5-MuiDayCalendar-weekContainer{
+    gap: 6em   ;
+}
+.css-5wchs2-MuiDateCalendar-root{
+    max-height: 30em !important;
+}
+.css-1pv2de5-MuiDayCalendar-weekContainer {
+    margin-top: 0.7em !important;
+}
+.custom-tooltip {
+    font-size: 1rem !important;
+    font-weight: bold; 
+    font-family: 'Montserrat', sans-serif;
+  }
+  .MuiDayCalendar-monthContainer {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr); /* 6 redova u mreži */
+    grid-auto-rows: 2.5em; /* Visina svakog reda */
+    gap: 2.1em; /* Razmak između redova */
+}
+.css-4wda5y-MuiDayCalendar-monthContainer{
+    width: 66em;
+    margin-top: 1em;
+}
+
+.MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition.css-1n1xn3x-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition {
+    height: 30em !important;
+}
+.MuiDateCalendar-root.css-5wchs2-MuiDateCalendar-root{
+    min-height: 40em !important;
+}
+.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel 
+{
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif;
+
+}

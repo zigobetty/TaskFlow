@@ -1,0 +1,476 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #111111;
+}
+
+.home-cont {
+
+    height: 60em;
+    /* Fiksna visina */
+    overflow: hidden;
+    /* Omogućuje scroll za sadržaj koji prelazi visinu */
+    padding: 10px;
+    /* Opcionalno za razmak unutar kontejnera */
+    box-sizing: border-box;
+    /* Osigurava da padding ne povećava dimenzije */
+}
+
+
+.hello-text {
+    font-size: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.current-state-text {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.calendar-text {
+    font-size: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 0.5em;
+}
+
+.task-cont {
+    margin-top: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.new-task-cont {
+    margin-top: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #3C3C3C;
+    height: 5em;
+    width: 50em;
+    border-radius: 30px;
+    margin-left: 22em; */
+}
+
+.no-task-text {
+    font-size: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    opacity: 0.9;
+}
+
+.no-task-text_2 {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 1em;
+
+}
+
+.footer-button-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 42em;
+}
+
+.custom-button {
+    font-size: 1.5rem !important;
+    background-color: transparent !important;
+    border: 2px solid #685daa;
+    ;
+    color: white !important;
+    width: 20em;
+    height: 2em;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: fixed;
+    bottom: 3em;
+    z-index: 1000;
+    
+}
+
+
+.custom-button:hover {
+    background-color: #685daa !important;
+}
+
+.ml-2.text-xs {
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+}
+
+/* Pozadinski sloj */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Tamni overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    margin-left: 12em;
+}
+
+
+.popup-content {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column; 
+  }
+  .popup-content-cont {
+    flex: 1; /* Expands to fill available space */
+    overflow-y: auto; /* Enable scrolling for content overflow */
+    padding: 1rem;
+  }
+
+.popup-content h2 {
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    margin-bottom: 3px;
+}
+
+.custom-close-button {
+    background-color: transparent !important;
+    border-color: red !important;
+}
+
+.custom-close-button-state {
+    background-color: transparent !important;
+    border-color: red !important;
+}
+
+.custom-close-button:hover {
+    background-color: red !important;
+}
+
+.custom-close-button-state:hover {
+    background-color: red !important;
+}
+
+
+.custom-save-button {
+    background-color: transparent !important;
+    border-color: green !important;
+}
+
+.custom-save-button:hover {
+    background-color: green !important;
+}
+
+.custom-save-button-sate {
+    background-color: transparent !important;
+    border-color: green !important;
+}
+
+.custom-save-button-sate:hover {
+    background-color: green !important;
+}
+
+.close-button-cont {
+    position: sticky; /* Keeps the buttons visible at the bottom */
+    bottom: 0; /* Aligns to the bottom */
+    background-color: #2c2c2c; /* Matches modal background */
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end; /* Aligns buttons to the right */
+    gap: 1rem;
+    border-top: 1px solid #444; /* Optional: separator line */
+  }
+
+.add-task-text-popup {
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0.8;
+}
+
+.popup-content-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1em;
+    /* border:0.5px solid #3B0F75; */
+}
+
+.close-button-cont {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 4.1em;
+}
+
+.name-task-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.name-task-input {
+    width: 20em;
+    height: 2.5em;
+    border-radius: 12px;
+    background-color: #3C3C3C !important;
+    color: white;
+    font-weight: 500;
+    padding-left: 1em;
+    margin-top: 0.5em;
+}
+
+.name-task-input::placeholder {
+    color: white;
+    opacity: 0.6;
+    font-weight: 500;
+    padding-left: 0.5em;
+
+}
+
+.custom-calendar .p-inputtext {
+    background-color: #3C3C3C;
+    border: 1px solid #3C3C3C;
+    color: white !important;
+    width: 20em;
+    height: 2.5em;
+    border-radius: 12px;
+    font-weight: 500;
+    padding-left: 1em;
+    margin-top: 0.5em;
+}
+
+
+.p-datepicker {
+    background-color: #3C3C3C !important;
+    color: white !important;
+    border-radius: 12px !important;
+    width: 22em !important;
+    margin-left: 0;
+    margin-top: 0.5em;
+}
+
+
+.p-datepicker-header {
+    background-color: #2E2E2E !important;
+    color: white !important;
+    border-radius: 12px;
+    height: 2.5em;
+}
+
+
+.p-datepicker-calendar td span {
+    background-color: transparent !important;
+    color: white !important;
+    height: 3em;
+    width: 3em;
+}
+
+
+.p-datepicker-calendar td.p-datepicker-today span {
+    background-color: #685daa !important;
+    color: white !important;
+    border-radius: 50% !important;
+}
+
+
+.p-datepicker-calendar td span:hover {
+    background-color: #525252 !important;
+    color: white !important;
+    border-radius: 50% !important;
+}
+
+
+.p-inputtext {
+    background-color: #3C3C3C !important;
+    color: white !important;
+    border-radius: 12px !important;
+}
+
+
+
+.custom-datatable {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #3c3c3c;
+    border: none;
+}
+
+.p-dropdown-label.p-inputtext {
+    display: flex !important;
+    align-items: center !important;
+
+}
+
+.p-dropdown-trigger {
+    padding-right: 1em;
+}
+
+
+.p-dropdown-panel {
+    background-color: #3C3C3C !important;
+    color: white !important;
+    margin-top: 0.3em;
+    border-radius: 12px;
+}
+
+
+.p-dropdown-item.p-highlight {
+    background-color: #685daa !important;
+    color: white !important;
+}
+
+
+.p-dropdown-item-icon {
+    color: white !important;
+}
+
+.p-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding-left: 0.5em;
+    height: 2.5em;
+}
+
+/* Smanjenje opacity na hover */
+.p-dropdown-item:hover {
+    background-color: #685daa !important;
+    color: white !important;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.actions-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content-state {
+    background: #181818;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    height: 28em;
+    width: 48em;
+
+}
+
+.custom-dropdown-state {
+    height: 2.5em;
+    margin-top: 5em !important;
+}
+
+.p-icon.p-dropdown-trigger-icon.p-clickable {
+    color: white !important;
+    margin-left: -3em !important;
+}
+
+.custom-dropdown-state .p-dropdown-label.p-inputtext.p-placeholder {
+    padding-left: 1em !important;
+}
+
+.MuiYearCalendar-root.css-th0wnz-MuiYearCalendar-root {
+    min-height: 35em;
+    width: 65em;
+}
+
+.fullContent-text {
+    font-size: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    opacity: 0.7;
+}
+.popup-content-comment-desc {
+    background: #181818;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    height: 16em;
+    width: 48em;
+}
+
+.button-fullContent-cont {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: absolute; 
+    padding-left: 41rem !important;
+    padding-top: 3em !important;
+   
+}
+
+/*  font-size: 1.5rem !important;
+    background-color: transparent !important;
+    border: 2px solid #685daa;
+    ;
+    color: white !important;
+    width: 20em;
+    height: 2em;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: fixed;
+    bottom: 3em;
+    z-index: 1000; */
+
+.fullContent-text-main{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    opacity: 0.7;
+}
+
+.scrollable-container {
+    max-height: 43em; 
+    overflow-y: auto;
+    margin: 0 1rem; 
+    margin-top: 4em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .fullContent-content-main-text {
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal; 
+    overflow: hidden; 
+    text-align: justify; 
+    max-width: 100%; 
+  }
+  
+  /* .textarea.name-task-input.p-inputtextarea.p-inputtext.p-component.p-inputtextarea-resizable{
+    height: 5em !important;
+  } */
+  

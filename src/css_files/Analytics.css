@@ -1,0 +1,18 @@
+.main-char-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    height: auto;
+    padding-top: 1em;
+}
+
+.choose-chart-text {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    opacity: 0.9;
+    margin-top: 3em;
+}
+.chart-dropdown{
+    font-family: 'Montserrat', sans-serif;
+}
