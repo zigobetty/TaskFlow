@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'primeicons/primeicons.css';
 
+import "@mui/material/styles";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
