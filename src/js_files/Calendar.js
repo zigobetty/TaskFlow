@@ -78,32 +78,55 @@ const CalendarApp = () => {
 
   const fetchHighlightedDays = async () => {
     try {
+      // Dohvat trenutnog korisnika iz localStorage
       const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+      console.log("Current user:", currentUser);
+  
+      // Provera da li je korisnik ulogovan
       if (!currentUser.id) {
-        console.warn("No user is logged in or ID missing.");
+        console.warn("No user is logged in or user ID is missing.");
         setHighlightedDays({});
         return;
       }
   
+      // Dohvat podataka iz kolekcije "tasks" u Firestore
       const querySnapshot = await getDocs(collection(db, "tasks"));
+      console.log("Query snapshot size:", querySnapshot.size);
+  
+      // Obrada podataka i grupisanje po datumima
       const deadlines = {};
   
       querySnapshot.docs
-        .filter((doc) => doc.data().userId === currentUser.id)
+        .filter((doc) => doc.data().userId === currentUser.id) // Filtriranje po korisničkom ID-u
         .forEach((doc) => {
           const { task_deadline: deadline, state, task_name: name } = doc.data();
+  
+          // Provera validnosti podataka
           if (deadline && state) {
             const formattedDate = dayjs(deadline).format("YYYY-MM-DD");
+  
+            // Grupisanje po datumu
             if (!deadlines[formattedDate]) {
               deadlines[formattedDate] = [];
             }
-            deadlines[formattedDate].push({ color: stateColors[state], name });
+  
+            deadlines[formattedDate].push({
+              color: stateColors[state] || "#FFFFFF", // Fallback za nepoznate boje
+              name: name || "Unnamed Task", // Fallback za ime zadatka
+            });
           }
         });
   
+      console.log("Fetched task deadlines:", deadlines);
+  
+      // Ažuriranje state-a
       setHighlightedDays(deadlines);
     } catch (error) {
+      // Prikazivanje grešaka u konzoli
       console.error("Error fetching task deadlines:", error);
+  
+      // Opcionalno: Postavljanje praznog state-a u slučaju greške
+      setHighlightedDays({});
     }
   };
   

@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @import "flowbite";
+@import "./css_files/Home.css";
+@import "./css_files/Calendar.css";
+
 
 
 
@@ -18,4 +21,137 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.css-1pv2de5-MuiDayCalendar-weekContainer {
+  margin-top: 0.7em !important;
+}
+.calendar-container {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 90vh !important;
+  color: white !important;
+  padding: 20px !important;
+  border-radius: 20px !important;
+}
+
+.card {
+  background-color: transparent !important;
+  border-radius: 20px !important;
+  padding: 20px !important;
+
+}
+
+.calendar-card {
+  width: 70em !important;/* Povećana širina */
+  height: auto !important;/* Automatska visina */
+  padding: 30px !important; /* Veći unutarnji razmak */
+}
+
+
+p {
+  font-size: 1.2em;
+
+}
+
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root {
+  color: white !important;
+  font-size: 1.5em !important;
+}
+
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root {
+  color: white !important;
+  font-size: 1.5em !important;
+}
+
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+  background: #685daa !important;
+ 
+}
+
+.css-17nrfho-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+  color: white !important;
+  font-size: 2em !important;
+
+}
+
+.css-z4ns9w-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+  color: white !important;
+  font-size: 2em !important;
+}
+
+.css-14yom7c-MuiSvgIcon-root-MuiPickersCalendarHeader-switchViewIcon {
+  color: white !important;
+  font-size: 2em !important;
+}
+
+.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+  color: white !important;
+  font-size: 1.5em !important;
+  opacity: 0.8;
+}
+
+/* Stil za datume u kalendaru */
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root:hover,
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:hover {
+  background-color: #999 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  cursor: pointer;
+
+}
+
+.css-1chuxo2-MuiPickersCalendarHeader-label {
+  font-size: 1.15em !important;
+}
+
+.css-5wchs2-MuiDateCalendar-root{
+  background-color: blue !important;
+  width: 200em !important;
+  background-color: #3c3c3c !important;
+  border-radius: 20px !important;
+  height: 100em !important;
+}
+.css-1rl1vrc-MuiDayCalendar-header{
+  gap: 6em !important;
+  margin-top: 4em !important;
+}
+.css-1pv2de5-MuiDayCalendar-weekContainer{
+  gap: 6em !important;  
+}
+.css-5wchs2-MuiDateCalendar-root{
+  max-height: 30em !important;
+}
+/* .css-1pv2de5-MuiDayCalendar-weekContainer {
+  margin-top: 0.7em !important;
+} */
+.custom-tooltip {
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.MuiDayCalendar-monthContainer {
+  display: grid !important;
+  grid-template-rows: repeat(6, 1fr) !important;
+  grid-auto-rows: 2.5em !important;
+  gap: 2.1em !important;
+}
+.css-4wda5y-MuiDayCalendar-monthContainer{
+  width: 66em !important;;
+  margin-top: 1em !important;;
+}
+
+.MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition.css-1n1xn3x-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition {
+  height: 30em !important;
+}
+.MuiDateCalendar-root.css-5wchs2-MuiDateCalendar-root{
+  min-height: 40em !important;
+}
+.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel 
+{
+  font-weight: 700 !important;
+  font-family: 'Montserrat', sans-serif !important;
+
 }
