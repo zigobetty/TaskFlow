@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/TaskFlow/static/css/main.50df1acd.css",
+    "main.js": "/TaskFlow/static/js/main.7830e7f2.js",
+    "static/js/867.04591cc3.chunk.js": "/TaskFlow/static/js/867.04591cc3.chunk.js",
+    "static/js/488.9c92ff38.chunk.js": "/TaskFlow/static/js/488.9c92ff38.chunk.js",
+    "static/media/slika4.jpg": "/TaskFlow/static/media/slika4.9ae980ab827e9145889c.jpg",
+    "static/media/slika_login.jpg": "/TaskFlow/static/media/slika_login.1a1d8efbe92a3d441303.jpg",
+    "static/media/primeicons.svg": "/TaskFlow/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/primeicons.eot": "/TaskFlow/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/TaskFlow/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/TaskFlow/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/primeicons.woff2": "/TaskFlow/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "static/media/logoTaskFlow.png": "/TaskFlow/static/media/logoTaskFlow.a5ae9032a226189c29e7.png",
+    "static/media/settings_taskFlow.png": "/TaskFlow/static/media/settings_taskFlow.c5420f90df2ed002cfda.png",
+    "static/media/analytics.png": "/TaskFlow/static/media/analytics.5760a19966893782212d.png",
+    "static/media/calendar.png": "/TaskFlow/static/media/calendar.661873a0ce1e2a78770a.png",
+    "static/media/home_taskFlow.png": "/TaskFlow/static/media/home_taskFlow.f27d52dea548a8fa7177.png",
+    "index.html": "/TaskFlow/index.html",
+    "main.50df1acd.css.map": "/TaskFlow/static/css/main.50df1acd.css.map",
+    "main.7830e7f2.js.map": "/TaskFlow/static/js/main.7830e7f2.js.map",
+    "867.04591cc3.chunk.js.map": "/TaskFlow/static/js/867.04591cc3.chunk.js.map",
+    "488.9c92ff38.chunk.js.map": "/TaskFlow/static/js/488.9c92ff38.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50df1acd.css",
+    "static/js/main.7830e7f2.js"
+  ]
+}
