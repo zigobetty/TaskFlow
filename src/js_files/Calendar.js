@@ -7,6 +7,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { PickersDay } from "@mui/x-date-pickers/PickersDay";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { Calendar } from "primereact/calendar";
 import { DayCalendarSkeleton } from "@mui/x-date-pickers/DayCalendarSkeleton";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../backend/firebase";
@@ -147,6 +148,21 @@ const CalendarApp = () => {
       <div className="card calendar-card">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
+            sx={{
+              backgroundColor: "#3c3c3c",
+              ".MuiPickersDay-root": {
+                color: "white",
+                fontSize: "1.5em",
+              },
+              ".MuiPickersArrowSwitcher-button": {
+                color: "white",
+                fontSize: "2em",
+              },
+              ".MuiTypography-root": {
+                fontWeight: "700",
+                fontFamily: "'Montserrat', sans-serif",
+              },
+            }}
             value={selectedDate}
             onChange={(newValue) => setSelectedDate(newValue)}
             loading={isLoading}
