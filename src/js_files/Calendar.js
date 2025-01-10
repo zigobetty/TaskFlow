@@ -24,14 +24,14 @@ function ServerDay(props) {
   const { highlightedDays = {}, day, outsideCurrentMonth, ...other } = props;
 
   const formattedDate = dayjs(day).format("YYYY-MM-DD");
-  const tasksForDate = highlightedDays[formattedDate] || []; // Array of tasks
+  const tasksForDate = highlightedDays[formattedDate] || [];
 
   return (
     <Tooltip
       title={
         tasksForDate.length > 0
           ? tasksForDate.map((task) => task.name).join(", ")
-          : ""
+          : "No tasks"
       }
       arrow
       classes={{ tooltip: "custom-tooltip" }}
@@ -78,9 +78,9 @@ const CalendarApp = () => {
 
   const fetchHighlightedDays = async () => {
     try {
-      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-      if (!currentUser || !currentUser.id) {
-        console.error("No user is logged in.");
+      const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+      if (!currentUser.id) {
+        console.warn("No user is logged in or ID missing.");
         setHighlightedDays({});
         return;
       }
@@ -101,7 +101,6 @@ const CalendarApp = () => {
           }
         });
 
-      console.log("Fetched task deadlines:", deadlines);
       setHighlightedDays(deadlines);
     } catch (error) {
       console.error("Error fetching task deadlines:", error);
@@ -112,10 +111,9 @@ const CalendarApp = () => {
     fetchHighlightedDays();
   }, []);
 
-  const handleMonthChange = (date) => {
+  const handleMonthChange = async (date) => {
     setIsLoading(true);
-    setHighlightedDays({});
-    fetchHighlightedDays();
+    await fetchHighlightedDays();
     setIsLoading(false);
   };
 
