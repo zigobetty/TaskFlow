@@ -44,7 +44,7 @@
 }
 
 .update-button {
-    border: 2px solid #4874f4;
+    background-color: #4874f4;
     width: 10em;
     text-align: center;
     height: 3em;
@@ -54,7 +54,8 @@
 }
 
 .update-button:hover {
-    background-color: #4874f4;
+    border: 2px solid #4874f4;
+    background-color: transparent;
 }
 
 .cont {
@@ -92,7 +93,8 @@
     align-items: center;
     flex-direction: column;
 }
-.popup-content-pass{
+
+.popup-content-pass {
     position: relative;
     width: 80%;
     max-width: 600px;
@@ -115,7 +117,8 @@
     gap: 1em;
     margin-left: 25em;
 }
-.popup-buttons-pass{
+
+.popup-buttons-pass {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -124,26 +127,28 @@
     margin-left: 23em;
 
 }
-.changepass-cont{
+
+.changepass-cont {
     margin-top: 2em;
-   
+
 }
 
-.change-button{
-    border: 2px solid #685daa;
+.change-button {
+    background-color: #685daa;
     width: 20em;
     height: 3em;
     align-items: center;
     opacity: 0.8;
 }
 
-.change-button:hover{
-    background-color: #685daa;
+.change-button:hover {
+    border: 2px solid #685daa;
+    background-color: transparent;
 
 }
 
-.pass-button{
-    border-color: red !important;
+.pass-button {
+    background-color: red;
     width: 12em;
     height: 3em;
     opacity: 0.8;
@@ -153,8 +158,9 @@
     align-items: center;
 
 }
-.pass-button:hover{
-    background-color: red;
+
+.pass-button:hover {
+    background-color: transparent;
+    border: 2px solid red;
 
 }
-

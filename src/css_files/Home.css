@@ -9,8 +9,7 @@ body {
 .home-cont {
 
     height: 60em;
-    /* Fiksna visina */
-    overflow: hidden;
+    width: 94em;    overflow: hidden;
     /* Omogućuje scroll za sadržaj koji prelazi visinu */
     padding: 10px;
     /* Opcionalno za razmak unutar kontejnera */
@@ -79,9 +78,7 @@ body {
 
 .custom-button {
     font-size: 1.5rem !important;
-    background-color: transparent !important;
-    border: 2px solid #685daa;
-    ;
+    background-color: #685daa !important;
     color: white !important;
     width: 20em;
     height: 2em;
@@ -99,7 +96,8 @@ body {
 
 
 .custom-button:hover {
-    background-color: #685daa !important;
+    border: 2px solid #685daa;
+    background-color: transparent !important;
 }
 
 .ml-2.text-xs {

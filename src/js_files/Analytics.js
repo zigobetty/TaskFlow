@@ -3,7 +3,7 @@ import "../css_files/Analytics.css";
 import { Chart } from "primereact/chart";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../backend/firebase";
-
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 const Analytics = () => {
   const [currentDateTime, setCurrentDateTime] = useState("");
@@ -14,6 +14,7 @@ const Analytics = () => {
   const [lineChartOptions, setLineChartOptions] = useState({});
   const [barChartData, setBarChartData] = useState({});
   const [barChartOptions, setBarChartOptions] = useState({});
+  const [hasTasks, setHasTasks] = useState(false); // Track if tasks exist
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,6 +42,13 @@ const Analytics = () => {
         const tasks = taskQuerySnapshot.docs
           .filter((doc) => doc.data().userId === currentUser.id)
           .map((doc) => doc.data());
+
+        if (tasks.length === 0) {
+          setHasTasks(false);
+          return;
+        }
+
+        setHasTasks(true);
 
         const taskCounts = {
           "To Do": 0,
@@ -138,19 +146,7 @@ const Analytics = () => {
           scales: {
             x: {
               ticks: {
-                color: (context) => {
-                  const labels = context.chart.data.labels;
-                  const states = [
-                    { name: "To Do", color: "#FFD700" },
-                    { name: "Doing", color: "#1E90FF" },
-                    { name: "For Test", color: "#FF8C00" },
-                    { name: "Rework", color: "#FF4500" },
-                    { name: "Done", color: "#32CD32" },
-                  ];
-                  const labelIndex = context.index;
-                  const state = states.find((s) => s.name === labels[labelIndex]);
-                  return state ? state.color : "#FFFFFF";
-                },
+                color: "#FFFFFF",
               },
               grid: {
                 color: "#cccccc",
@@ -158,7 +154,7 @@ const Analytics = () => {
             },
             y: {
               ticks: {
-                color: "#666666",
+                color: "#FFFFFF",
               },
               grid: {
                 color: "#cccccc",
@@ -166,6 +162,7 @@ const Analytics = () => {
             },
           },
         };
+
         const barData = {
           labels: ["To Do", "Doing", "For Test", "Rework", "Done"],
           datasets: [
@@ -179,25 +176,24 @@ const Analytics = () => {
                 taskCounts["Done"],
               ],
               backgroundColor: [
-                "rgba(255, 215, 0, 0.2)", 
-                "rgba(30, 144, 255, 0.2)", 
+                "rgba(255, 215, 0, 0.2)",
+                "rgba(30, 144, 255, 0.2)",
                 "rgba(255, 140, 0, 0.2)",
-                "rgba(255, 69, 0, 0.2)", 
-                "rgba(50, 205, 50, 0.2)", 
+                "rgba(255, 69, 0, 0.2)",
+                "rgba(50, 205, 50, 0.2)",
               ],
               borderColor: [
-                "#FFD700", 
-                "#1E90FF", 
-                "#FF8C00", 
+                "#FFD700",
+                "#1E90FF",
+                "#FF8C00",
                 "#FF4500",
-                "#32CD32", 
+                "#32CD32",
               ],
               borderWidth: 1,
-              
             },
           ],
         };
-        
+
         const barOptions = {
           plugins: {
             legend: {
@@ -213,33 +209,26 @@ const Analytics = () => {
           scales: {
             x: {
               ticks: {
-                color: "#FFFFFF", 
+                color: "#FFFFFF",
               },
               grid: {
-                color: "rgba(255, 255, 255, 0.1)", 
+                color: "rgba(255, 255, 255, 0.1)",
               },
             },
             y: {
               beginAtZero: true,
               ticks: {
-                color: "#FFFFFF", 
+                color: "#FFFFFF",
               },
               grid: {
-                color: "rgba(255, 255, 255, 0.1)", 
+                color: "rgba(255, 255, 255, 0.1)",
               },
             },
           },
-          maintainAspectRatio: false, 
+          maintainAspectRatio: false,
           layout: {
             padding: 20,
           },
-        };
-        const containerStyle = {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          backgroundColor: "#2D2D2D",
         };
 
         setChartData(pieData);
@@ -258,58 +247,86 @@ const Analytics = () => {
 
   return (
     <>
-    
       <p className="header-text-first">Analytics of your Tasks and Goals</p>
-      <div>
-        <p className="choose-chart-text">Choose Chart View</p>
-        <select
-          className="chart-dropdown"
-          value={chartType}
-          onChange={(e) => setChartType(e.target.value)}
-          style={{
-            marginTop: "0.5rem",
-            fontSize: "1rem",
-            marginBottom: "1rem",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            backgroundColor: "#3C3C3C",
-            borderColor: "#3C3C3C",
-            color: "white",
-            opacity: "0.9",
-          }}
-        >
-          <option value="pie">Pie</option>
-          <option value="doughnut">Doughnut</option>
-          <option value="line">Line</option>
-          <option value="bar">Bar</option>
-        </select>
-      </div>
-      <div className="main-char-container">
-        <div className="card flex justify-content-center">
-          {chartType === "line" ? (
-            <Chart
-              type="line"
-              data={lineChartData}
-              options={lineChartOptions}
-              style={{ width: "600px", height: "600px", opacity: "0.9" }}
-            />
-          ) : chartType === "bar" ? (
-            <Chart
-              type="bar"
-              data={barChartData}
-              options={barChartOptions}
-              style={{ width: "43em", height: "600px", opacity: "0.9" }}
-            />
-          ) : (
-            <Chart
-              type={chartType}
-              data={chartData}
-              options={chartOptions}
-              style={{ width: "600px", height: "600px", opacity: "0.9" }}
-            />
-          )}
-        </div>
-      </div>
+      {!hasTasks ? (
+        <p className="no-task-text-analyze">
+          No tasks found. Add some tasks to unlock your analytics view!
+        </p>
+      ) : (
+        <>
+          <div>
+            <p className="choose-chart-text">Choose Chart View</p>
+            <select
+              className="chart-dropdown"
+              value={chartType}
+              onChange={(e) => setChartType(e.target.value)}
+              style={{
+                marginTop: "0.5rem",
+                fontSize: "1rem",
+                marginBottom: "1rem",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+                backgroundColor: "#3C3C3C",
+                borderColor: "#3C3C3C",
+                color: "white",
+                opacity: "0.9",
+              }}
+            >
+              <option value="pie">Pie</option>
+              <option value="doughnut">Doughnut</option>
+              <option value="line">Line</option>
+              <option value="bar">Bar</option>
+            </select>
+          </div>
+          <div className="main-char-container">
+            <SwitchTransition>
+              <CSSTransition
+                key={chartType}
+                timeout={300}
+                classNames="fade"
+                unmountOnExit
+              >
+                <div>
+                  {chartType === "line" ? (
+                    <Chart
+                      type="line"
+                      data={lineChartData}
+                      options={lineChartOptions}
+                      style={{
+                        width: "600px",
+                        height: "600px",
+                        opacity: "0.9",
+                      }}
+                    />
+                  ) : chartType === "bar" ? (
+                    <Chart
+                      type="bar"
+                      data={barChartData}
+                      options={barChartOptions}
+                      style={{
+                        width: "43em",
+                        height: "600px",
+                        opacity: "0.9",
+                      }}
+                    />
+                  ) : (
+                    <Chart
+                      type={chartType}
+                      data={chartData}
+                      options={chartOptions}
+                      style={{
+                        width: "600px",
+                        height: "600px",
+                        opacity: "0.9",
+                      }}
+                    />
+                  )}
+                </div>
+              </CSSTransition>
+            </SwitchTransition>
+          </div>
+        </>
+      )}
     </>
   );
 };

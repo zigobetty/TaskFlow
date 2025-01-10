@@ -49,26 +49,6 @@ const SidebarCustom = ({ navigate }) => {
           </div>
           <div
             className="calendar_sideBar"
-            onClick={() => navigate("/default_screen/calendar")}
-          >
-            <img
-              src={require("../assets/calendar.png")}
-              alt="TaskFlow Logo"
-              style={{ width: "30px", height: "30px", opacity: "0.6" }}
-            />
-            <p
-              className="sidebar-text"
-              style={{
-                fontWeight: isActive("/default_screen/calendar")
-                  ? "bold"
-                  : "normal",
-              }}
-            >
-              CALENDAR
-            </p>
-          </div>
-          <div
-            className="calendar_sideBar"
             onClick={() => navigate("/default_screen/task_details")}
           >
             <img
@@ -85,6 +65,26 @@ const SidebarCustom = ({ navigate }) => {
               }}
             >
               TASK DETAILS AND EDITING
+            </p>
+          </div>
+          <div
+            className="calendar_sideBar"
+            onClick={() => navigate("/default_screen/calendar")}
+          >
+            <img
+              src={require("../assets/calendar.png")}
+              alt="TaskFlow Logo"
+              style={{ width: "30px", height: "30px", opacity: "0.6" }}
+            />
+            <p
+              className="sidebar-text"
+              style={{
+                fontWeight: isActive("/default_screen/calendar")
+                  ? "bold"
+                  : "normal",
+              }}
+            >
+              CALENDAR
             </p>
           </div>
           <div

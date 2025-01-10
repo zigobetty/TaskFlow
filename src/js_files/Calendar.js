@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+import "../css_files/Home.css";
+import "../css_files/Calendar.css";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -19,25 +20,6 @@ const stateColors = {
   Done: "#32CD32",
 };
 
-// Styled Tooltip
-const StyledTooltip = styled(Tooltip)(({ theme }) => ({
-  fontSize: "1rem",
-  fontWeight: "bold",
-  fontFamily: "'Montserrat', sans-serif",
-}));
-
-// Styled Badge
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    display: "flex",
-    flexDirection: "row",
-    gap: "2px",
-    transform: "translate(-50%, -100%)",
-    top: "0em",
-    left: "50%",
-  },
-}));
-
 function ServerDay(props) {
   const { highlightedDays = {}, day, outsideCurrentMonth, ...other } = props;
 
@@ -45,15 +27,16 @@ function ServerDay(props) {
   const tasksForDate = highlightedDays[formattedDate] || []; // Array of tasks
 
   return (
-    <StyledTooltip
+    <Tooltip
       title={
         tasksForDate.length > 0
           ? tasksForDate.map((task) => task.name).join(", ")
           : ""
       }
       arrow
+      classes={{ tooltip: "custom-tooltip" }}
     >
-      <StyledBadge
+      <Badge
         key={day.toString()}
         overlap="circular"
         badgeContent={
@@ -71,10 +54,20 @@ function ServerDay(props) {
             ))}
           </div>
         }
+        sx={{
+          "& .MuiBadge-badge": {
+            display: "flex",
+            flexDirection: "row",
+            gap: "2px",
+            transform: "translate(-50%, -100%)",
+            top: "0em",
+            left: "50%",
+          },
+        }}
       >
         <PickersDay {...other} outsideCurrentMonth={outsideCurrentMonth} day={day} />
-      </StyledBadge>
-    </StyledTooltip>
+      </Badge>
+    </Tooltip>
   );
 }
 
@@ -127,27 +120,8 @@ const CalendarApp = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "90vh",
-        color: "white",
-        padding: "20px",
-        borderRadius: "20px",
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: "transparent",
-          borderRadius: "20px",
-          padding: "30px",
-          width: "70em",
-          height: "auto",
-        }}
-      >
+    <div className="calendar-container">
+      <div className="card calendar-card">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
             value={selectedDate}
@@ -161,24 +135,6 @@ const CalendarApp = () => {
             slotProps={{
               day: {
                 highlightedDays,
-              },
-            }}
-            sx={{
-              "& .MuiPickersDay-root": {
-                color: "white",
-                fontSize: "1.5rem",
-              },
-              "& .MuiPickersDay-root:hover": {
-                backgroundColor: "#999",
-                borderRadius: "50%",
-              },
-              "& .MuiPickersDay-root.Mui-selected": {
-                backgroundColor: "#1976d2",
-                color: "#fff",
-              },
-              "& .MuiTypography-root.MuiDayCalendar-weekDayLabel": {
-                color: "white",
-                fontWeight: "bold",
               },
             }}
           />
