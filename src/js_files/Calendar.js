@@ -24,14 +24,14 @@ function ServerDay(props) {
   const { highlightedDays = {}, day, outsideCurrentMonth, ...other } = props;
 
   const formattedDate = dayjs(day).format("YYYY-MM-DD");
-  const tasksForDate = highlightedDays[formattedDate] || [];
+  const tasksForDate = highlightedDays[formattedDate] || []; // Array of tasks
 
   return (
     <Tooltip
       title={
         tasksForDate.length > 0
           ? tasksForDate.map((task) => task.name).join(", ")
-          : "No tasks"
+          : ""
       }
       arrow
       classes={{ tooltip: "custom-tooltip" }}
@@ -84,10 +84,10 @@ const CalendarApp = () => {
         setHighlightedDays({});
         return;
       }
-
+  
       const querySnapshot = await getDocs(collection(db, "tasks"));
       const deadlines = {};
-
+  
       querySnapshot.docs
         .filter((doc) => doc.data().userId === currentUser.id)
         .forEach((doc) => {
@@ -100,20 +100,22 @@ const CalendarApp = () => {
             deadlines[formattedDate].push({ color: stateColors[state], name });
           }
         });
-
+  
       setHighlightedDays(deadlines);
     } catch (error) {
       console.error("Error fetching task deadlines:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchHighlightedDays();
   }, []);
 
-  const handleMonthChange = async (date) => {
+  const handleMonthChange = (date) => {
     setIsLoading(true);
-    await fetchHighlightedDays();
+    setHighlightedDays({});
+    fetchHighlightedDays();
     setIsLoading(false);
   };
 
