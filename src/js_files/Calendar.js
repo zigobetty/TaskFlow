@@ -11,6 +11,7 @@ import { DayCalendarSkeleton } from "@mui/x-date-pickers/DayCalendarSkeleton";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../backend/firebase";
 import dayjs from "dayjs";
+import "@mui/material/styles";
 
 const stateColors = {
   "To Do": "#FFD700",
