@@ -203,6 +203,7 @@ const Details = () => {
           date: updatedTask.task_date,
           deadline: updatedTask.task_deadline,
           state: newState,
+          commentCount: comment_value_details ? 1 : 0,
         });
 
         return updatedTasks;

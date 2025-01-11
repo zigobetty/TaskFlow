@@ -129,7 +129,7 @@
 }
 
 .changepass-cont {
-    margin-top: 2em;
+    margin-top: 4em;
 
 }
 
@@ -139,6 +139,7 @@
     height: 3em;
     align-items: center;
     opacity: 0.8;
+    
 }
 
 .change-button:hover {
@@ -146,6 +147,7 @@
     background-color: transparent;
 
 }
+
 
 .pass-button {
     background-color: red;

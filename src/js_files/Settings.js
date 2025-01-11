@@ -6,8 +6,6 @@ import { db } from "../backend/firebase";
 import { Button } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 
-
-
 const Settings = () => {
   const navigate = useNavigate();
   const [currentDateTime, setCurrentDateTime] = useState("");
@@ -54,8 +52,8 @@ const Settings = () => {
           full_name: foundUser.full_name || "",
           email: foundUser.email || "",
           username: foundUser.username || "",
-          password: foundUser.password || "", 
-          docId: foundUser.docId, 
+          password: foundUser.password || "",
+          docId: foundUser.docId,
         });
       } else {
         console.error("No user data found for the given ID.");
@@ -147,8 +145,6 @@ const Settings = () => {
       setPasswordError("Current password is incorrect.");
       return;
     }
-    
-    
 
     if (newPassword !== confirmPassword) {
       setPasswordError("New passwords do not match.");
@@ -201,9 +197,11 @@ const Settings = () => {
             className="fullname-settings-input"
             value={userData.email}
           />
-          <Button onClick={openEmailPopup} className="update-button">
-            Update
-          </Button>
+          <Button
+            onClick={openEmailPopup}
+            className="update-button"
+            label="Update"
+          ></Button>
         </div>
       </div>
       <div className="fullName-settings-cont">
@@ -215,17 +213,28 @@ const Settings = () => {
             className="fullname-settings-input"
             value={userData.username}
           />
-          <Button onClick={openUsernamePopup} className="update-button">
-            Update
+          <Button onClick={openUsernamePopup} className="update-button" label="Update">
           </Button>
         </div>
       </div>
       <div className="line"></div>
-      <div className="changepass-cont">  <Button onClick={openPasswordPopup} className="change-button" label="Change password"></Button></div>
+      <div className="changepass-cont">
+        {" "}
+        <Button
+          onClick={openPasswordPopup}
+          className="change-button"
+          label="Change password"
+        ></Button>
+      </div>
       <div className="line"></div>
-      <div className="changepass-cont">  <Button onClick={() => navigate("/signin")} className="pass-button" label="Log Out"></Button></div>
-
-    
+      <div className="changepass-cont">
+        {" "}
+        <Button
+          onClick={() => navigate("/signin")}
+          className="pass-button"
+          label="Log Out"
+        ></Button>
+      </div>
 
       {/* Popup for Email */}
       {isEmailPopupVisible && (
@@ -244,10 +253,7 @@ const Settings = () => {
               >
                 Save
               </Button>
-              <Button
-                className="custom-close-button"
-                onClick={closeEmailPopup}
-              >
+              <Button className="custom-close-button" onClick={closeEmailPopup}>
                 Cancel
               </Button>
             </div>
@@ -282,8 +288,8 @@ const Settings = () => {
           </div>
         </div>
       )}
-       {/* Popup for Password */}
-       {isPasswordPopupVisible && (
+      {/* Popup for Password */}
+      {isPasswordPopupVisible && (
         <div className="popup-overlay">
           <div className="popup-content-pass">
             <h2 className="update-email-text">Change Password</h2>

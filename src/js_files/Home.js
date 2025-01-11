@@ -487,7 +487,7 @@ const Home = () => {
                   fontFamily: "'Montserrat', sans-serif",
                   height: "3.5rem",
                   paddingLeft: "1rem",
-                  width: "10rem",
+                  width: "12rem",
                 }}
               ></Column>
               <Column
@@ -502,29 +502,35 @@ const Home = () => {
                 }}
                 body={(rowData) => (
                   <>
-                    <span
-                      id={`tooltip-desc-${rowData.id}`}
-                      style={{ cursor: "pointer" }}
-                      onClick={() => openModal(rowData.desc)}
-                    >
-                      {truncateText(rowData.desc || "-")}
-                    </span>
-                    <Tooltip
-                      target={`#tooltip-desc-${rowData.id}`}
-                      content="View full description"
-                      position="bottom"
-                      style={{
-                        backgroundColor: "#6c6969",
-                        color: "white",
-                        width: "10rem",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "12px",
-                        marginLeft: "-0.5rem",
-                        marginTop: "0.5rem",
-                      }}
-                    />
+                    {rowData.desc ? (
+                      <>
+                        <span
+                          id={`tooltip-desc-${rowData.id}`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => openModal(rowData.desc)}
+                        >
+                          {truncateText(rowData.desc || "-")}
+                        </span>
+                        <Tooltip
+                          target={`#tooltip-desc-${rowData.id}`}
+                          content="View full description"
+                          position="bottom"
+                          style={{
+                            backgroundColor: "#6c6969",
+                            color: "white",
+                            width: "10rem",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: "12px",
+                            marginLeft: "-0.5rem",
+                            marginTop: "0.5rem",
+                          }}
+                        />
+                      </>
+                    ) : (
+                      <span style={{ color: "gray" }}>No description</span>
+                    )}
                   </>
                 )}
                 bodyStyle={{
@@ -545,29 +551,35 @@ const Home = () => {
                 }}
                 body={(rowData) => (
                   <>
-                    <span
-                      id={`tooltip-comment-${rowData.id}`}
-                      style={{ cursor: "pointer" }}
-                      onClick={() => openModal(rowData.comment)}
-                    >
-                      {truncateText(rowData.comment || "-")}
-                    </span>
-                    <Tooltip
-                      target={`#tooltip-comment-${rowData.id}`}
-                      content="View full comment"
-                      position="bottom"
-                      style={{
-                        backgroundColor: "#6c6969",
-                        color: "white",
-                        width: "10rem",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "12px",
-                        marginLeft: "-0.5rem",
-                        marginTop: "0.5rem",
-                      }}
-                    />
+                    {rowData.comment ? (
+                      <>
+                        <span
+                          id={`tooltip-comment-${rowData.id}`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => openModal(rowData.comment)}
+                        >
+                          {truncateText(rowData.comment || "-")}
+                        </span>
+                        <Tooltip
+                          target={`#tooltip-comment-${rowData.id}`}
+                          content="View full comment"
+                          position="bottom"
+                          style={{
+                            backgroundColor: "#6c6969",
+                            color: "white",
+                            width: "10rem",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: "12px",
+                            marginLeft: "-0.5rem",
+                            marginTop: "0.5rem",
+                          }}
+                        />
+                      </>
+                    ) : (
+                      <span style={{ color: "gray" }}>No comment</span>
+                    )}
                   </>
                 )}
                 bodyStyle={{

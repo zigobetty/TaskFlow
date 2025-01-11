@@ -44,6 +44,7 @@ p {
 
 .calendar-card  .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
     background: #685daa !important;
+    border: 25px solid #685daa;
 
 }
 
@@ -75,7 +76,6 @@ p {
     color: white !important;
     border-radius: 50% !important;
     cursor: pointer;
-
 }
 
 .calendar-card .css-1chuxo2-MuiPickersCalendarHeader-label {
@@ -128,7 +128,7 @@ p {
 }
 
 .calendar-card .MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition.css-1n1xn3x-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition {
-    height: 30em !important;
+    height: 35em !important;
 }
 
 .calendar-card .MuiDateCalendar-root.css-5wchs2-MuiDateCalendar-root {

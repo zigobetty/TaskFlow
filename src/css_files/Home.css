@@ -89,7 +89,7 @@ body {
     align-items: center;
     white-space: nowrap;
     position: fixed;
-    bottom: 3em;
+    bottom: 2.2em;
     z-index: 1000;
     
 }
@@ -101,7 +101,7 @@ body {
 }
 
 .ml-2.text-xs {
-    font-size: 1.3rem !important;
+    font-size: 1.1rem !important;
     font-weight: bold !important;
     font-family: 'Montserrat', sans-serif;
     text-align: center;

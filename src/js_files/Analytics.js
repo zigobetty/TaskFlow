@@ -250,7 +250,8 @@ const Analytics = () => {
       <p className="header-text-first">Analytics of your Tasks and Goals</p>
       {!hasTasks ? (
         <p className="no-task-text-analyze">
-          No tasks found. Add some tasks to unlock your analytics view!
+          No tasks found. <br></br> Add some tasks to unlock your analytics
+          view!
         </p>
       ) : (
         <>
