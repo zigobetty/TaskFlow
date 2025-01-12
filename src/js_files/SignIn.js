@@ -79,7 +79,7 @@ const SignIn = () => {
       <div
         className="left_main_cont"
         style={{
-          backgroundImage: `url(${require("../assets/slika4.jpg")})`,
+          backgroundImage: `url(${require("../assets/picture1.jpg")})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: "0.5",

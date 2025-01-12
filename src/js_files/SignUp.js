@@ -51,7 +51,7 @@ const SignUp = () => {
       console.error("Error adding user: ", error);
     }
   };
-  
+
 
   return (
     <div className="main_container">
@@ -261,7 +261,7 @@ const SignUp = () => {
       <div
         className="left_main_cont_signUp"
         style={{
-          backgroundImage: `url(${require("../assets/slika_login.jpg")})`,
+          backgroundImage: `url(${require("../assets/slika4.jpg")})`,
           backgroundSize: "cover", // Pokriva cijeli container
           backgroundPosition: "center", // Postavlja sliku u centar
           opacity: "0.5",

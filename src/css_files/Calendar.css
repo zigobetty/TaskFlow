@@ -37,12 +37,12 @@ p {
     font-size: 1.5em !important;
 }
 
-.calendar-card  .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root {
+.calendar-card .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root {
     color: white !important;
     font-size: 1.5em !important;
 }
 
-.calendar-card  .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+.calendar-card .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
     background: #685daa !important;
     border: 25px solid #685daa;
 
@@ -139,4 +139,82 @@ p {
     font-weight: 700 !important;
     font-family: 'Montserrat', sans-serif !important;
 
+}
+
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    background-color: transparent !important;
+}
+
+.modal-content {
+    max-width: 30em;
+    margin-left: 58em;
+    margin-top: 22em;
+    height: auto;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 1.5em; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 1em; 
+}
+
+
+.selected-task-text {
+    color: white;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+
+.modal-content-second {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 60em;
+    margin-left: 42em;
+    margin-top: 22em;
+    height: auto;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+
+}
+
+.task-details-cal-text {
+    color: white;
+    font-family: 'Montserrat', sans-serif !important;
+    opacity: 0.8;
+    margin-left: 1em;
+    margin-top: 0.7em;
+
+}
+
+.task-details-cal-text-HEADER {
+    color: white;
+    font-family: 'Montserrat', sans-serif !important;
+    opacity: 0.8;
+    margin-left: 16em;
+    margin-top: 0.7em;
+    margin-bottom: 1em;
+
+}
+
+.button-close-cal-cont {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* border:1px solid green; */
+    width: 59em;
+    margin-top: 2em;
+    margin-bottom: 0.7em;
+}
+
+.hover-element:hover {
+    opacity: 0.7;
+}
+
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    background-color: transparent !important;
 }
